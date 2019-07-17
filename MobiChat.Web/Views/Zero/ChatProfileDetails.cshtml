@@ -1,0 +1,76 @@
+﻿@model ProfileDetailsViewModel
+@{
+  Layout = string.Format("~/Views/{0}/_Layout/_Layout.cshtml", MobiContext.Current.Service.ServiceData.Template.Name);
+  ChatService service = MobiContext.Current.Service as ChatService;
+}
+
+@Styles.Render("~/Zero/Slider/css")
+
+<div id="content">
+  <div id="w">
+    <div class="slider">
+      <ul class="slides">
+        @foreach (ProfileThumbnail pt in Model.AdditionalThumbnails)
+        {
+          <li class="slide">
+            <figure>
+              <img src="@pt.GetDefaultUrl()">
+            </figure>
+          </li>
+        }
+       
+      </ul>
+    </div>
+  </div>
+</div>
+
+@*@if (!string.IsNullOrEmpty(Model.ProfileDetails.Description))
+{
+  <div class="content_description">
+    @Model.ProfileDetails.Description
+  </div>
+}*@
+
+
+<a href="/number/@Model.ID">
+  <div class="sendMessageButton" id="sendMessage" style="margin:10px">
+    @*<a href="sms:@service.Shortcode?body=Hello There!">Send message</a>*@
+    @Translations.Web.ProfileDetail.SendMessage
+  </div>
+</a>
+
+<div class="profile_content_description">
+  @foreach (ProfileDetailValue pdv in Model.DescriptionValues)
+  {
+    <div class="profile_description">
+      <div class="profile_description_title">@pdv.Title :</div>
+      <div class="profile_description_value">@pdv.Value</div>
+    </div>
+  }
+</div>
+
+
+<div id="phonenumber">
+  <span>&#9993;</span>
+</div>
+
+<script type="text/javascript">
+$(function(){
+  $('.slider').glide({
+    autoplay: 3500,
+    hoverpause: true, // set to false for nonstop rotate
+    arrowRightText: '&#10095;',
+    arrowLeftText: '&#10094;'
+  });
+});
+</script>
+
+<script type="text/javascript">
+	var _menu = null;
+	var _appender = null;
+
+	$(document).ready(function(){
+		_menu = new Menu();
+		_appender = new Appender();
+	});
+</script>

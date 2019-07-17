@@ -1,0 +1,61 @@
+﻿@model UserModel
+
+<div class="box-body">
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Username</label>
+    <input type="text" class="form-control" id="username">
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Password</label>
+    <input type="password" class="form-control" id="passw">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Repeat password</label>
+    <label id="errpass"></label>
+    <input type="password" class="form-control" id="reppassw">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Type</label>
+    <select id="usertype" class="form-control">
+      @foreach (var m in Model.UserType)
+      {
+        <option utype="@m.ID" selected="">@m.Name</option>
+      }
+    </select>
+
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Status</label>
+    <select class="form-control" id="userstatus">
+      @foreach (var m in Enum.GetValues(typeof(MobiChat.Data.UserStatus)))
+      {
+        <option>@m</option>
+      }
+    </select>
+  </div>
+
+
+
+  <input class="btn btn-default" onclick="createUser()" type="button" value="Create" />
+
+</div>
+
+<script>
+
+  $('#reppassw').change(function () {
+    $('#errpass').html('');
+    var p1 = $('#passw').val();
+    var p2 = $('#reppassw').val();
+    if (p1 != p2) {
+      $('#errpass').append("<b>The password and confirmation password do not match. </b>");
+    }
+  });
+
+</script>

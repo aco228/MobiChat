@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{80B2BF16-A026-483A-AE38-50CAED13E873}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MobiChat.Web.Core</RootNamespace>
+    <AssemblyName>MobiChat.Web.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\_thirdPartyLibs\log4net-1.2.11\bin\net\4.0\release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SessionRoute.cs" />
+    <Compile Include="Controllers\IMobiController.cs" />
+    <Compile Include="Controllers\SendNumberController.cs" />
+    <Compile Include="Controllers\ThumbnailController.cs" />
+    <Compile Include="Filters\AgeVerificationAttribute.cs" />
+    <Compile Include="Filters\ContextAttribute.cs" />
+    <Compile Include="Filters\MobiActionFilterAttributeBase.cs" />
+    <Compile Include="Filters\TemplateAttribute.cs" />
+    <Compile Include="Helpers\UrlHelper.cs" />
+    <Compile Include="Helpers\ViewHelper.cs" />
+    <Compile Include="Localization\Groups\AVSLocalizationGroup.cs" />
+    <Compile Include="Localization\Groups\ControlsLocalizationGroup.cs" />
+    <Compile Include="Localization\Groups\ErrorLocalizationGroup.cs" />
+    <Compile Include="Localization\Groups\HelpdeskLocalizationGroup.cs" />
+    <Compile Include="Localization\Groups\HomeLocalizationGroup.cs" />
+    <Compile Include="Localization\Groups\ImprintLocalizationGroup.cs" />
+    <Compile Include="Localization\Groups\ProfileDetailLocalizationGroup.cs" />
+    <Compile Include="Localization\Groups\SEOLocalizationGroup.cs" />
+    <Compile Include="Localization\Groups\TermsLocalizationGroup.cs" />
+    <Compile Include="Localization\Groups\IMobiChatWebLocalization.cs" />
+    <Compile Include="Localization\Groups\MobiChatWebLocalization.cs" />
+    <Compile Include="Localization\MobiLocalizationKeyDescriptor.cs" />
+    <Compile Include="Localization\MobiWebLocalizationProvider.cs" />
+    <Compile Include="Localization\Translations.cs" />
+    <Compile Include="Log\UserSessionConverter.cs" />
+    <Compile Include="MobiContext.cs" />
+    <Compile Include="MobiController.cs" />
+    <Compile Include="MobiHttpModule.cs" />
+    <Compile Include="MobiSessionIDManager.cs" />
+    <Compile Include="Models\AgeVerificationViewModel.cs" />
+    <Compile Include="Models\ErrorViewModel.cs" />
+    <Compile Include="Models\HomeListModel.cs" />
+    <Compile Include="Models\InsertNumberModel.cs" />
+    <Compile Include="Models\MobiViewModelBase.cs" />
+    <Compile Include="Models\ProfileDetailsViewModel.cs" />
+    <Compile Include="Models\Template\TemplateConfigurationModel.cs" />
+    <Compile Include="Models\Template\TemplateIndexModel.cs" />
+    <Compile Include="Models\Template\TemplateModelBase.cs" />
+    <Compile Include="Models\Template\TemplateServiceUpdateLogoModel.cs" />
+    <Compile Include="Models\Template\TranslationTemplateModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SendNumberManagers\AustriaSendNumberManager.cs" />
+    <Compile Include="SendNumberManagers\CzechSendNumberManager.cs" />
+    <Compile Include="SendNumberManagers\DefaultSendNumberManager.cs" />
+    <Compile Include="SendNumberManagers\SendMessageBase.cs" />
+    <Compile Include="SendNumberManagers\SlovakiaSendNumberManager.cs" />
+    <Compile Include="SendNumberManagers\SwitzerlandSendNumberManager.cs" />
+    <Compile Include="ViewEngines\MobiViewEngine.cs" />
+    <Compile Include="WebApplication.cs" />
+    <Compile Include="WebApplicationRuntime.cs" />
+    <Compile Include="WebUserSession.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Cashflow\trunk\Cashflow.Client.Web\Cashflow.Client.Web.csproj">
+      <Project>{54d5da6d-fd32-401d-bb91-6a8068fae4aa}</Project>
+      <Name>Cashflow.Client.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Cashflow\trunk\Cashflow.Client\Cashflow.Client.csproj">
+      <Project>{e4e07af9-8b9b-4c22-bc21-a1b69281ff15}</Project>
+      <Name>Cashflow.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Cashflow\trunk\Cashflow.Message\Cashflow.Message.csproj">
+      <Project>{256b7409-9ced-4ac4-912a-ef8d4c819801}</Project>
+      <Name>Cashflow.Message</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Senti\trunk\Senti.Core\Senti.Core.csproj">
+      <Project>{fc2aa55a-f0ca-423a-8f45-2f21fc6982ce}</Project>
+      <Name>Senti.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Senti\trunk\Senti.Data\Senti.Data.csproj">
+      <Project>{ffa64eb3-3d17-4dc1-8b8f-1e4b884ac7e5}</Project>
+      <Name>Senti.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobiChat.Core\MobiChat.Core.csproj">
+      <Project>{45ece815-bc33-4c33-8800-0cad99f3a21a}</Project>
+      <Name>MobiChat.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobiChat.Data.Sql\MobiChat.Core.Sql.csproj">
+      <Project>{4a47875c-533c-44d9-afff-9a230551aec8}</Project>
+      <Name>MobiChat.Core.Sql</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

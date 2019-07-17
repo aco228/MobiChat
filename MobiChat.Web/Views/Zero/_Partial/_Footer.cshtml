@@ -1,0 +1,13 @@
+﻿<div id="footer">
+  @if (String.IsNullOrEmpty(@Translations.Web.Home.Notification3))
+  {
+
+  }
+  else { 
+  <div id="footerAditionalText">@Translations.Web.Home.Notification3</div>
+  }
+  @*<div id="logo" style="background-image:url(@Model.GetLogoUrl())"></div>*@
+  <div id="footerLinks">
+    <a href="/">@Translations.Web.Home.Title</a> | <a href="/imprint">@Translations.Web.Imprint.Title</a> | <a href="/terms">@Translations.Web.Terms.Title</a>
+  </div>
+</div>

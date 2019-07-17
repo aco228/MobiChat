@@ -1,0 +1,9 @@
+﻿@{
+  Layout = string.Format("~/Views/{0}/_Layout/_Layout.cshtml", MobiContext.Current.Service.ServiceData.Template.Name);
+}
+
+
+<div id="content">
+  <h1>@Translations.Web.Terms.Title</h1>
+  @Html.Raw(Server.HtmlDecode(ViewHelper.Prepare(Translations.Web.Terms.Text)))
+</div>

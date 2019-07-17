@@ -1,0 +1,84 @@
+﻿@model InsertNumberModel
+@{
+  Layout = string.Format("~/Views/{0}/_Layout/_Layout.cshtml", MobiContext.Current.Service.ServiceData.Template.Name);
+}
+
+@Styles.Render("~/Zero/Slider/css")
+<style>
+  #content #w #profilepicture,#name{margin-left:auto;margin-right:auto}#content #w #profilepicture{max-width:400px;min-width:200px;border-width:medium;border-style:solid;display:block}#name{color:#fff;text-align:center;margin-bottom:25px;font-size:28px;text-shadow:1px 1px #000;width:70%}.numberbutton,.numberinput{box-sizing:content-box;width:200px;height:22px;display:block;padding:10px 20px;font:700 15px/normal Tahoma,Geneva,sans-serif;-o-text-overflow:clip;text-overflow:clip;margin:30px auto}.numberinput{border:1px solid #b7b7b7;-webkit-border-radius:3px;border-radius:3px;color:rgba(55,0,92,1);text-align:center;background:rgba(252,252,252,1);-webkit-box-shadow:2px 2px 2px 0 rgba(0,0,0,.2) inset;box-shadow:2px 2px 2px 0 rgba(0,0,0,.2) inset;text-shadow:1px 1px 0 rgba(255,255,255,.66);-webkit-transition:all .2s cubic-bezier(.42,0,.58,1);-moz-transition:all .2s cubic-bezier(.42,0,.58,1);-o-transition:all .2s cubic-bezier(.42,0,.58,1);transition:all .2s cubic-bezier(.42,0,.58,1)}.numberbutton{cursor:pointer;border:1px solid #1A7A00;-webkit-border-radius:3px;border-radius:3px;color:#fff;background:#29C000;-webkit-box-shadow:2px 2px 2px 0 rgba(0,0,0,.2);box-shadow:2px 2px 2px 0 rgba(0,0,0,.2)}.numberbutton:active{background-color:#1B8800}
+  
+  #contentThumbnail{ width:100%; height:450px; background-size:contain; background-position:center; background-repeat:no-repeat; }
+  #sendMessageBox{ margin-top:-120px; }
+  #inertNumberTextAbove{
+    color: red;
+    text-shadow: 1px 1px 1px black;
+    background: linear-gradient(to left, rgba(255,255,255,.0), rgba(179, 64, 64, 0.5), rgba(255,255,255,.0));
+    padding: 5px;
+    text-align: center;
+    margin: 10px;
+  }
+  #additionalText{
+    text-shadow: 1px 1px 0px #000;
+    font-size: 14px;
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+</style>
+
+@*<div id="content">
+  <div id="w">
+    <div id="profilepicture">
+      <img src="@Model.Profile.ThumbnailUrl" alt="" />
+    </div>
+  </div>
+</div>*@
+
+@if (!string.IsNullOrEmpty(Translations.Web.ProfileDetail.InsertNumberAboveText))
+{
+  <div id="inertNumberTextAbove">@Translations.Web.ProfileDetail.InsertNumberAboveText</div>
+}
+
+<div id="contentThumbnail" style="background-image:url(@Model.Profile.ThumbnailUrl);"></div>
+
+<div id="sendMessageBox">
+  <input id="numberToSend" class="numberinput"   placeholder="@Translations.Web.ProfileDetail.EnterYourNumber" style="margin-bottom:10px!important;" />
+  <input id="submitNumber" type="button" class="numberbutton" value="@Translations.Web.Home.Text1" style="margin-top:0px!important;"/>
+</div>
+
+<div id="additionalText">
+  Službu technicky zajišťuje Dimoco Europe GmbH Infolinka: 844 444 484. Cena za SMS 60,00 Kč. Zasláním SMS akceptuješ naše všeobecné obchodní podmínky. <a href="http://www.platmobilem.cz">www.platmobilem.cz</a> Virtuální kontakty možné. Posláním SMS akceptuješ naše Všeobecné obchodní podmínky.
+</div>
+
+<script type="text/javascript">
+	var _menu = null;
+
+	$(document).ready(function(){
+	  _menu = new Menu();
+	  onSendNumber();
+	});
+
+	function onSendNumber()
+	{
+	  $('#submitNumber').click(function () {
+	    var number = $('#numberToSend').val();
+	    if(number == '')
+	    {
+	      alert('Number is not inserted');
+	      return;
+	    }
+
+	    $.ajax({
+	      url: '/sendnumber/send/', data: { number: number },
+	      type: 'POST',
+	      success:function(response)
+	      {
+	        _visual.Alert(response.message);
+	      }
+	    });
+
+	  });
+	}
+
+</script>

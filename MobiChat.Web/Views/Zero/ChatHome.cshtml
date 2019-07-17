@@ -1,0 +1,48 @@
+﻿@model HomeListModel
+@{
+  Layout = string.Format("~/Views/{0}/_Layout/_Layout.cshtml", MobiContext.Current.Service.ServiceData.Template.Name);
+  ChatService service = MobiContext.Current.Service as ChatService;
+}
+
+<div id="content">
+  <div id="profileHolder">
+
+    @foreach (ICacheContent content in Model.Content)
+    {
+      ProfileCache profile = content as ProfileCache;
+      ProfileDetail detail = profile.GetDetails(MobiContext.Current.Service.ServiceData.FallbackLanguage);
+                                                                                                          
+      <a href="@profile.Url">
+        <div class="chatProfile">
+          <div class="profileBackground" style="background-image: url('@profile.ThumbnailUrl');"></div>
+          <div class="profileInfo">
+            <div class="profileInfoHolderTop">
+              <div class="pInfo">@detail.Name</div>
+            </div>
+            <div class="profileInfoHolderBottom">
+              <div class="pInfo">@Translations.Web.Home.Text1 <span>@detail.Keyword</span></div>
+              <div class="pInfo">@Translations.Web.Home.Text2 <span> @service.Shortcode</span></div>
+            </div>
+          </div>
+        </div>
+      </a>
+    }
+
+
+  </div>
+  <div style="clear:both"></div>
+  <div class="standardButton" id="loadMore">@Translations.Web.Controls.LoadMore</div>
+</div>  
+
+<script>
+  var _appender = null;
+
+  function onReady()
+  {
+    _appender = new Appender();
+    _appender.count = @Model.ProfileCount;
+    _appender.displayed = @Model.Content.Count;
+    _appender.defaultDisplay = @Model.DefaultDisplay;
+    _appender.init();
+  }
+</script>

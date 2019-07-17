@@ -1,0 +1,85 @@
+﻿@model List<dynamic>
+<style>
+  .panel-body {
+    padding: 0px;
+  }
+</style>
+@ViewBag.Query
+
+<br />
+<br />
+
+<table id="tableStat" class="table table-striped table table-sm" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Messages</th>
+      <th>Incomming</th>
+      <th>Deliverd MT</th>
+      <th>Deliverd MT Free</th>
+      <th>Not Deliverd MT</th>
+      <th>Sent Free</th>
+      <th>Created</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    @foreach (var tt in Model)
+    {
+      <tr>
+        <td class="">@tt.Messages</td>
+        <td class="">@tt.Incomming</td>
+        <td class="">@tt.DeliveredMT</td>
+        <td class="">@tt.DeliverdMTFree</td>
+        <td class="">@tt.NotDeliverdMTFree</td>
+        <td class="">@tt.SentFree</td>
+        <td class="">@tt.Created</td>
+      </tr>
+    }
+
+  </tbody>
+</table>
+
+<script>
+
+  //var all = 0;
+  //var All;
+  //var aa =0;
+  //var ss=0;
+  //var dd=0;
+
+  //$('tbody').find("tr").each(function () {
+  //  All = $(this).find('.all').text();
+  //  all += parseInt(All);
+
+  //  aa = $(this).find('.direction').text();
+  //  ss = $(this).find('.statuss').text();
+  //  dd = $(this).find('.type').text();
+
+
+
+  //  //incomming, we recive message from user
+  //  if (aa == 'Incoming' && ss == 'Received' && dd == 'MO') {
+  //    $('#incom').append("<b> Received : " + All + "</b>").html();
+  //  }
+  //  //deliverd MT, we send message to user
+  //  if (aa == 'Outgoing' && ss == 'Delivered' && dd == 'MT') {
+  //    $('#delMt').append("<b> Deliverd MT : " + All + "</b>").html();
+  //  }
+  //  //Wellcome message
+  //  if (aa == 'Outgoing' && ss == 'Delivered' && dd == 'MT Free') {
+  //    $('#delMTFree').append("<b> Delivered MT Free : " + All + "</b>").html();
+  //  }
+  //  //Wellcome message, when user enter wrong number..
+  //  if (aa == 'Outgoing' && ss == 'Not delivered' && dd == 'MT Free') {
+  //    $('#notDelMTFree').append("<b> Not Deliverd Free : " + All + "</b>").html();
+  //  }
+  //  //Wellcome message, when user message is sent to user
+  //  if (aa == 'Outgoing' && ss == 'Sent' && dd == 'MT Free') {
+  //    $('#sentMTFree').append("<b> Sent Free : " + All + "</b>").html();
+  //  }
+
+  //});
+  ////All messages
+  //$('#app').append("<b> All Messages : " +all + "</b>").html();
+
+</script>

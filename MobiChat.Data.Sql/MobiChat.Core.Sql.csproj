@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A47875C-533C-44D9-AFFF-9A230551AEC8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MobiChat.Data.Sql</RootNamespace>
+    <AssemblyName>MobiChat.Data.Sql</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\_thirdPartyLibs\log4net-1.2.11\bin\net\4.0\release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core.Sql\Database.cs" />
+    <Compile Include="Core.Sql\SqlConnectionInfo.cs" />
+    <Compile Include="Core.Sql\SqlManagerBase.cs" />
+    <Compile Include="MobiChat.Data.Sql\ActionContextGroupManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ActionContextGroupManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ActionContextGroupTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ActionContextManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ActionContextManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ActionContextTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\AgentLanguageMapManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\AgentLanguageMapManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\AgentLanguageMapTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\AgentManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\AgentManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\AgentTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ApplicationManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ApplicationManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ApplicationRouteSetMapManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ApplicationRouteSetMapManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ApplicationRouteSetMapTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ApplicationTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ApplicationTypeManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ApplicationTypeManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ApplicationTypeTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\BehaviorModelManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\BehaviorModelManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\BehaviorModelTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\CallbackReportManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\CallbackReportManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\CallbackReportTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\CountryManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\CountryManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\CountryTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\CustomerManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\CustomerManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\CustomerTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\DomainManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\DomainManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\DomainTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\GenderManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\GenderManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\GenderTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\InstanceManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\InstanceManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\InstanceTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\IPCountryMapManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\IPCountryMapManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\IPCountryMapTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\LanguageManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\LanguageManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\LanguageTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\LocalizationManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\LocalizationManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\LocalizationTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\MerchantManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\MerchantManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\MerchantTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\MessageManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\MessageManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\MessageTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\MobileOperatorCodeManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\MobileOperatorCodeManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\MobileOperatorCodeTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\MobileOperatorManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\MobileOperatorManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\MobileOperatorTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\MOMessageManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\MOMessageManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\MOMessageTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\MTMessageManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\MTMessageManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\MTMessageTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\PaymentConfigurationManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\PaymentConfigurationManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\PaymentConfigurationTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\PaymentCredentialsManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\PaymentCredentialsManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\PaymentCredentialsTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\PaymentInterfaceManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\PaymentInterfaceManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\PaymentInterfaceTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\PaymentProviderManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\PaymentProviderManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\PaymentProviderTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ProductManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ProductManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ProductTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ReportLinkGroupManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ReportLinkGroupManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ReportLinkGroupTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ReportLinkManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ReportLinkManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ReportLinkTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ReportManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ReportManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ReportTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\RouteManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\RouteManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\RouteParameterManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\RouteParameterManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\RouteParameterTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\RouteSetManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\RouteSetManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\RouteSetTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\RouteTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\RuntimeTypeManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\RuntimeTypeManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\RuntimeTypeTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\SendNumberTypeManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\SendNumberTypeManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\SendNumberTypeTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceConfigurationEntryManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceConfigurationEntryManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceConfigurationEntryTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceConfigurationManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceConfigurationManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceConfigurationTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceLogoManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceLogoManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceLogoTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceSendNumberMapManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceSendNumberMapManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceSendNumberMapTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceTypeManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceTypeManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ServiceTypeTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ShortMessageManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ShortMessageManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ShortMessageRequestManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\ShortMessageRequestManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\ShortMessageRequestTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\ShortMessageTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\TemplateManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\TemplateManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\TemplateTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\TransactionManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\TransactionManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\TransactionTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationGroupKeyManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationGroupKeyManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationGroupKeyTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationGroupManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationGroupManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationGroupTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationKeyManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationKeyManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationKeyTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationTypeManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationTypeManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationTypeTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationValueManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationValueManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\TranslationValueTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserDetailManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserDetailManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserDetailTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserSessionManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserSessionManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserSessionTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserSessionTypeManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserSessionTypeManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserSessionTypeTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserStatusHistoryManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserStatusHistoryManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserStatusHistoryTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserTable.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserTypeManager.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserTypeManager.model.cs" />
+    <Compile Include="MobiChat.Data.Sql\UserTypeTable.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileCategoryManager.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileCategoryManager.model.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileCategoryTable.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileDetailManager.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileDetailManager.model.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileDetailTable.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileGroupManager.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileGroupManager.model.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileGroupTable.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileManager.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileManager.model.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileTable.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileThumbnailDataManager.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileThumbnailDataManager.model.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileThumbnailDataTable.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileThumbnailManager.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileThumbnailManager.model.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ProfileThumbnailTable.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ServiceProfileGroupMapManager.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ServiceProfileGroupMapManager.model.cs" />
+    <Compile Include="MobiChat.Web.Data.Sql\ServiceProfileGroupMapTable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Senti\trunk\Senti.Core\Senti.Core.csproj">
+      <Project>{fc2aa55a-f0ca-423a-8f45-2f21fc6982ce}</Project>
+      <Name>Senti.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Senti\trunk\Senti.Data\Senti.Data.csproj">
+      <Project>{ffa64eb3-3d17-4dc1-8b8f-1e4b884ac7e5}</Project>
+      <Name>Senti.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MobiChat.Core\MobiChat.Core.csproj">
+      <Project>{45ece815-bc33-4c33-8800-0cad99f3a21a}</Project>
+      <Name>MobiChat.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

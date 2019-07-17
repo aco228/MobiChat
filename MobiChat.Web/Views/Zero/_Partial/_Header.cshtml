@@ -1,0 +1,19 @@
+﻿
+<div id="header">
+  <a href="/">
+    <div id="logo" style="background-image:url(@Model.GetLogoUrl())"></div>
+  </a>
+  
+  @*<div id="menuOpener"></div>*@
+
+  @if (String.IsNullOrEmpty(@Translations.Web.Home.Notification2))
+  {
+
+  }
+  else { 
+  <div id="headerAditionalText">
+   @Translations.Web.Home.Notification2
+  </div>
+  }
+  
+</div>

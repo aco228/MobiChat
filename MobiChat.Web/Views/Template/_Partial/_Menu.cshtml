@@ -1,0 +1,99 @@
+﻿@model TemplateModelBase
+@{
+  string _clientType = MobiContext.Current.Session.UserType;
+}
+
+<aside id="sidebar_main">
+  <a href="#" class="uk-close sidebar_main_close_button"></a>
+  <div class="sidebar_main_header">
+    <div class="sidebar_logo"><a href="/template"><img src="@Model.GetLogoUrl()" alt="" width="200" style="margin-top:10px;" /></a></div>
+    <div class="sidebar_actions">
+      <div id="template_buildDate">
+        Build date:<br />
+        <strong>@File.GetLastWriteTime(ViewContext.Controller.GetType().Assembly.Location).ToString("dd. MM. yyyy - HH:mm:ss")</strong>
+      </div>
+    </div>
+  </div>
+  <div class="menu_section">
+    <ul>
+      <li class="act_section">
+        <a href="/template">
+          <span class="menu_icon uk-icon-th-large"></span>
+          Index
+        </a>
+      </li>
+      @if (_clientType.Equals("Administrator") || _clientType.Equals("Martketing"))
+      {
+        <li>
+          <a href="/template/configuration">
+            <span class="menu_icon uk-icon-plug"></span>
+            Configuration
+          </a>
+        </li>
+      }
+      <li>
+        <a href="#">
+          <span class="menu_icon uk-icon-folder-o"></span>
+          Pages
+        </a>
+        <ul>
+          <li><a href="#">Not implemented</a></li>
+          @*<li><a href="/template/home">Home</a></li>
+          <li><a href="/template/content">Content</a></li>
+          <li><a href="/template/terms">Terms</a></li>
+          <li><a href="/template/imprint">Imprint</a></li>
+          <li><a href="/template/helpdesk">Helpdesk</a></li>
+          <li><a href="/template/avs">Age verification</a></li>
+          <li><a href="/template/login">Login</a></li>
+          <li><a href="/template/pending">Pending</a></li>
+          <li><a href="/template/payments">Payments</a></li>
+          <li><a href="/template/Unsubscribe?succ=true">Unsubscribe</a></li>
+          <li><a href="/template/NotificationCancelSuccess">Cancel successful</a></li>
+          <li><a href="/template/error">Error</a></li>
+          <li><a href="/template/notification">Notification</a></li>
+          <li><a href="/template/country">Country not supported</a></li>
+          <li><a href="/template/welcome">Welcome</a></li>*@
+        </ul>
+      </li>
+      @if (_clientType.Equals("Administrator") || _clientType.Equals("Marketing"))
+      {
+        <li>
+          <a href="#">
+            <span class="menu_icon uk-icon-list-alt"></span>
+            Translations
+          </a>
+          <ul>
+            @foreach (MobiChat.Data.TranslationGroup tg in Model.TranslationGroups)
+            {
+              <li><a href="/template/translation?t=@tg.Translation.ID&name=@tg.Name">@tg.Name</a></li>
+            }
+          </ul>
+        </li>
+      }
+      @if (_clientType.Equals("Administrator") || _clientType.Equals("Marketing"))
+      {
+        <li>
+          <a href="/template/updatelogo">
+            <span class="menu_icon uk-icon-folder-o"></span>
+            Update logo
+          </a>
+        </li>
+      }
+      @if (_clientType.Equals("Administrator") || _clientType.Equals("Marketing"))
+      {
+        <li>
+          <a href="http://services.mobichat.mobi/">
+            <span class="menu_icon uk-icon-folder-o"></span>
+            Services informations
+          </a>
+        </li>
+      }
+      <li>
+        <a href="/template/logout" id="btnLogout">
+          <span class="menu_icon uk-icon-user"></span>
+          Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside><!-- main sidebar end -->

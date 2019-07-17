@@ -1,0 +1,22 @@
+﻿@model AgeVerificationViewModel
+@{
+  Layout = string.Format("~/Views/{0}/_Layout/_Layout.cshtml", MobiContext.Current.Service.ServiceData.Template.Name);
+}
+
+
+<div id="content">
+  <h1>@Translations.Web.AVS.Title</h1>
+  <p>
+
+    <h1>@Translations.Web.AVS.Question</h1>
+
+    <a href="@Model.OriginalUrl">
+      @Translations.Web.AVS.Confirm
+    </a>
+
+    <a href="@Translations.Web.AVS.DenyUrl">
+      @Translations.Web.AVS.Deny
+    </a>
+
+  </p>
+</div>

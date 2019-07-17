@@ -1,0 +1,39 @@
+﻿@model MobiViewModelBase
+<!DOCTYPE html>
+<html>
+<head>
+  <title>@Model.HtmlTitle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  @Styles.Render("~/css")
+  @Scripts.Render("~/js")
+
+  @Styles.Render("~/Zero/css")
+  @Scripts.Render("~/Zero/js")
+
+</head>
+<body>
+
+  @Html.Partial("_Menu")
+  @{ Html.RenderPartial("_Header"); }
+
+  <div>
+    @RenderBody()
+  </div>
+
+  @{ Html.RenderPartial("_Footer"); }
+
+  <script type="text/javascript">
+	var _menu = null;
+
+	$(document).ready(function(){
+	  _menu = new Menu();
+
+	  if (typeof onReady == 'function')
+	    onReady();
+
+	});
+  </script>
+
+
+</body>
+</html>

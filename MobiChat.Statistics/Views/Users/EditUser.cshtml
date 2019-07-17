@@ -1,0 +1,51 @@
+﻿@model UserModel
+@{ 
+  string status = Model.SelectedStatus.ToString();
+}
+
+<div class="box-body">
+  <input type="hidden" id="stat" name="" value="@status" />
+  <input type="hidden" id="userid" name="" value="@Model.User.ID" />
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Username</label>
+    <input type="text" class="form-control" id="username" value="@Model.User.Username">
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleInputEmail1">Type</label>
+    <select id="usertype" class="form-control">
+      @foreach (var m in Model.UserType)
+      {
+      <option utype="@m.ID" selected="@Model.User.UserType.Name">@m.Name</option>
+      }
+    </select>
+
+  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Status</label>
+    <select class="form-control" id="userstatus">
+     @foreach (var m in Enum.GetValues(typeof(MobiChat.Data.UserStatus)))
+     {
+       <option>@m</option>
+     }
+    </select>
+  </div>
+
+  <input class="btn btn-default" onclick="editUser()" type="button" value="Update"/>
+
+</div>
+
+<script>
+
+  //Change which option has selected attribute
+  var options = $('#userstatus option');
+  var values = $.map(options, function (option) {
+    var status = $('input#stat').val()
+    if (option.innerHTML == status) {
+      $(option).attr('selected', option.text);
+    }
+  });
+
+</script>

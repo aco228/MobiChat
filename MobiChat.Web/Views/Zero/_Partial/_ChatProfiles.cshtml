@@ -1,0 +1,22 @@
+﻿@model HomeListModel
+@foreach (ICacheContent content in Model.Content)
+{
+  ProfileCache profile = content as ProfileCache;
+  ProfileDetail detail = profile.GetDetails(MobiContext.Current.Service.ServiceData.FallbackLanguage);
+  ChatService service = MobiContext.Current.Service as ChatService;
+
+  <a href="@profile.Url">
+    <div class="chatProfile">
+      <div class="profileBackground" style="background-image: url('@profile.ThumbnailUrl');"></div>
+      <div class="profileInfo">
+        <div class="profileInfoHolderTop">
+          <div class="pInfo">@detail.Name</div>
+        </div>
+        <div class="profileInfoHolderBottom">
+          <div class="pInfo">@Translations.Web.Home.Text1 <span>@detail.Keyword</span></div>
+          <div class="pInfo">@Translations.Web.Home.Text2 <span> @service.Shortcode</span></div>
+        </div>
+      </div>
+    </div>
+  </a>
+}

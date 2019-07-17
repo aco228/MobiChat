@@ -1,0 +1,10 @@
+﻿@model ErrorViewModel
+@{
+  Layout = string.Format("~/Views/{0}/_Layout/_Layout.cshtml", MobiContext.Current.Service.ServiceData.Template.Name);
+}
+
+
+<div id="content">
+  <h1>@Model.Title</h1>
+  <p>@Model.Text</p>
+</div>
